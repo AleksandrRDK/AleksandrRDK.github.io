@@ -1,0 +1,12 @@
+{
+  "tasks": [
+    {
+      "name": "название задачи",
+      "description": "описание задачи",
+      "category": "Личное",
+      "date": "2024-11-13",
+      "id": 1,
+      "completed": false
+    }
+  ]
+}

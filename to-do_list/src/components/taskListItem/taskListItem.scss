@@ -1,0 +1,80 @@
+// src/styles/index.scss
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #f1f1f1;
+    }
+
+    .task-details {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      .task-name {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .task-description {
+        font-size: 14px;
+        color: #555;
+      }
+
+      .task-meta {
+        display: flex;
+        gap: 15px;
+        font-size: 12px;
+        color: #777;
+
+        .task-category {
+          font-style: italic;
+        }
+
+        .task-date {
+          color: #888;
+        }
+      }
+    }
+
+    .delete-btn {
+      padding: 8px 12px;
+      font-size: 14px;
+      background-color: #ff4d4d;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #d90000;
+      }
+    }
+  }
+
+  .toggle-complete-btn {
+    padding: 5px 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #45a049;
+    }
+  }
+
+  .task-actions {
+    display: flex;
+    gap: 10px;
+  }

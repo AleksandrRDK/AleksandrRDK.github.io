@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ccc;
+
+    &__heading {
+        font-size: 2rem;
+        color: #333;
+    }
+
+    &__nav {
+        display: flex;
+        gap: 20px;
+    }
+
+    &__wrapper {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
