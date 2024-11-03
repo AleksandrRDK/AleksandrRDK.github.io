@@ -23,11 +23,11 @@
 
 1. Клонируйте репозиторий
    ```bash
-   git clone https://github.com/username/project-name.git
+   git clone https://github.com/AleksandrRDK/AleksandrRDK.github.io.git
    ```
 2. Перейдите в папку проекта
    ```bash
-   cd project-name
+   cd to-do_list
    ```
 3. Установите зависимости
    ```bash
