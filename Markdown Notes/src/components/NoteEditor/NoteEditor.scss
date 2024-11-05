@@ -1,0 +1,77 @@
+.note-editor {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.5rem;
+    background-color: #edf6f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #005f73;
+        margin-bottom: 1rem;
+    }
+
+    &__input {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid #a2d2ff;
+        border-radius: 5px;
+        background-color: #f0f4f8;
+        color: #005f73;
+
+        &:focus {
+            border-color: #3a86ff;
+            outline: none;
+            box-shadow: 0 0 4px rgba(58, 134, 255, 0.3);
+        }
+    }
+
+    &__textarea {
+        width: 100%;
+        height: 200px;
+        padding: 1rem;
+        font-size: 1rem;
+        border: 1px solid #a2d2ff;
+        border-radius: 5px;
+        resize: vertical;
+        background-color: #f0f4f8;
+        color: #005f73;
+
+        &:focus {
+            border-color: #3a86ff;
+            outline: none;
+            box-shadow: 0 0 4px rgba(58, 134, 255, 0.3);
+        }
+    }
+
+    &__button {
+        padding: 0.5rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 500;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: filter 0.3s ease;
+        color: #edf6f9;
+        background-color: #3a86ff;
+
+        &:hover {
+            filter: brightness(85%);
+        }
+    }
+
+    &__preview {
+        margin-top: 2rem;
+
+    h3 {
+        font-size: 1.2rem;
+        color: #005f73;
+        margin-bottom: 0.5rem;
+    }
+    }
+}

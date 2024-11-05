@@ -4,8 +4,9 @@
     align-items: center;
     padding: 1rem 2rem;
     height: 200px;
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
+    margin-top: 20px;
     border: #007364 10px solid;
     border-radius: 100px;
 
@@ -13,35 +14,5 @@
         font-size: 1.8rem;
         font-weight: bold;
         margin: 0;
-    }
-
-    .header__btn__add,
-    .header__btn__clear {
-        padding: 0.5rem 1.2rem;
-        font-size: 1rem;
-        font-weight: 500;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: filter 0.3s ease;
-        color: #edf6f9;
-
-        &:hover {
-            filter: brightness(90%);
-        }
-    }
-
-    .header__btn__add {
-        background-color: #3a86ff;
-        margin-right: 15px;
-    }
-
-    .header__btn__clear {
-        background-color: #d62828;
-    }
-    .header__btns {
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 }

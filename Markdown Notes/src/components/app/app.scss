@@ -1,10 +1,31 @@
-.app {
-    height: 100vh;
-    overflow-y: scroll;
+body {
+    background-color: #edf6f9; /* Морской светлый фон для всего сайта */
+    margin: 0;
+    font-family: Arial, sans-serif; /* Основной шрифт для всего сайта */
+    color: #005f73; /* Цвет текста, чтобы сочетаться с фоном */
+}
 
-    &__wrapper {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 20px;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+
+.main__shield {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Задачи занимают 1 часть, редактор — 2 части */
+    gap: 1.5rem; /* Расстояние между колонками */
+    padding: 1rem;
+
+    /* Адаптивное поведение */
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr; /* Переключаемся на одну колонку для мобильных */
+    }
+
+    .editors__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem; /* Расстояние между редактором и заметкой */
     }
 }
