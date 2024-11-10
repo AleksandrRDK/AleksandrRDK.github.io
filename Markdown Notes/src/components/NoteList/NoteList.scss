@@ -1,6 +1,15 @@
 .notelist {
     color: #005f73; /* темный цвет текста */
 
+    &__search{
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
     h2 {
         font-size: 1.6rem;
         font-weight: bold;

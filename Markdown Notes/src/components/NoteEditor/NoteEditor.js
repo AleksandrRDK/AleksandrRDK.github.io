@@ -2,11 +2,14 @@ import { v4 as uuidv4 } from 'uuid';
 import { useState, useEffect } from 'react';
 
 import MarkdownPreviewer from '../MarkdownPreviewer/MarkdownPreviewer';
+import CopyNotification from '../CopyNotification/CopyNotification';
 import './NoteEditor.scss';
 
 const NoteEditor = ({ onSave, onAdd, editingNote}) => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+    const [showNotification, setShowNotification] = useState(false);
+    const [showTips, setShowTips] = useState(false);
 
     useEffect(() => {
         if (editingNote) {
@@ -29,6 +32,21 @@ const NoteEditor = ({ onSave, onAdd, editingNote}) => {
         setContent('');
     }
 
+    const handleCopy = () => {
+        navigator.clipboard.writeText(content)
+            .then(() => {
+                setShowNotification(true); // Показываем уведомление
+            })
+            .catch((error) => {
+                console.error("Ошибка копирования: ", error);
+            });
+    };
+
+
+    const closeNotification = () => {
+        setShowNotification(false); // Скрываем уведомление
+    };
+
     return (
         <div className="note-editor">
             <h2>Редактор заметок</h2>
@@ -45,13 +63,39 @@ const NoteEditor = ({ onSave, onAdd, editingNote}) => {
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
             ></textarea>
+            <button
+                className="note-editor__tips-button"
+                onClick={() => setShowTips(!showTips)}
+                aria-label="Подсказки по Markdown"
+            >
+                ?
+            </button>
+            {showTips && (
+                <div className="markdown-tips">
+                    <h3>Подсказки по Markdown:</h3>
+                    <ul>
+                        <li><code># Заголовок</code> - заголовок</li>
+                        <li><code>**жирный текст**</code> - жирный текст</li>
+                        <li><code>*курсив*</code> - курсив</li>
+                        <li><code>[ссылка](url)</code> - ссылка</li>
+                        <li><code>- Список</code> - элемент списка</li>
+                    </ul>
+                </div>
+            )}
             <button className="note-editor__button" onClick={handleSave}>
                 {editingNote ? "Сохранить изменения" : "Добавить Заметку"}
             </button>
+            <button className="note-editor__button" onClick={handleCopy}>Копировать HTML</button>
             <div className="note-editor__preview">
                 <h3>Предварительный просмотр</h3>
                 <MarkdownPreviewer content={content} />
             </div>
+            {showNotification && (
+                <CopyNotification
+                    message="HTML скопирован!"
+                    onClose={closeNotification}
+                />
+            )}
         </div>
     );
 };
