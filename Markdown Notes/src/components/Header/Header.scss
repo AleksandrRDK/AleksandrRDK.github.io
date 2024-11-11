@@ -1,18 +1,76 @@
 .header__wrapper {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
-    padding: 1rem 2rem;
-    height: 200px;
+    padding: 1.5rem;
     width: 100%;
-    margin: 0 auto;
-    margin-top: 20px;
-    border: #007364 10px solid;
-    border-radius: 100px;
+    max-width: 800px;
+    margin: 20px auto;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+    position: relative;
+    z-index: 1; // Устанавливаем основной контент выше фона
+
+    // Псевдоэлемент для "живой" границы
+    &::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        border-radius: 20px;
+        background: linear-gradient(120deg, #007364, #00b894, #6c5ce7, #3a86ff);
+        background-size: 200% 200%; // Задаем увеличенный размер для анимации
+        z-index: -1; // Позади основного содержимого
+        animation: animate-border 5s linear infinite;
+    }
 
     h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
         font-weight: bold;
         margin: 0;
+        color: #fff;
+        text-shadow: 0px 0px 5px rgba(0, 115, 100, 0.4); // лёгкое свечение
     }
+
+    .theme-toggle {
+        display: flex;
+        gap: 1rem;  // Расстояние между кнопками
+        margin-top: 1rem;
+
+        button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+
+        button:nth-child(1) {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+
+        button:nth-child(2) {
+            background-color: #333;
+            color: #f0f0f0;
+        }
+
+        button:nth-child(3) {
+            background-color: #3a86ff;
+            color: #fff;
+        }
+    }
+}
+
+@keyframes animate-border {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
 }

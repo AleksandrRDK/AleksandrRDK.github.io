@@ -1,124 +1,49 @@
 .markdown-previewer {
-    border-radius: 8px;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    color: #333; // темный текст для хорошего контраста
-    line-height: 1.6;
-    max-width: 600px;
-    margin: 0 auto; // центрируем на странице
-}
-
-// Стили для заголовков
-.markdown-previewer h1 {
-    font-size: 2em;
-    color: #333;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-.markdown-previewer h2 {
-    font-size: 1.8em;
-    color: #555;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 8px;
-    margin-bottom: 18px;
-}
-
-.markdown-previewer h3 {
-    font-size: 1.6em;
-    color: #666;
-    margin-bottom: 16px;
-}
-
-// Стили для текста
-.markdown-previewer p {
-    margin-bottom: 16px;
-}
-
-// Стили для ссылок
-.markdown-previewer a {
-    color: #007acc;
-    text-decoration: none;
-    border-bottom: 1px dashed #007acc;
-
-    &:hover {
-        color: #005a9c;
-        border-bottom: 1px solid #005a9c;
-    }
-}
-
-// Стили для списков
-.markdown-previewer ul,
-.markdown-previewer ol {
-    padding-left: 20px;
-    margin-bottom: 16px;
-}
-
-.markdown-previewer li {
-    margin-bottom: 8px;
-}
-
-// Стили для жирного текста
-.markdown-previewer strong {
-    font-weight: bold;
-    color: #333;
-}
-
-// Стили для кода
-.markdown-previewer code {
-    background-color: #f4f4f4;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-family: 'Courier New', Courier, monospace;
-    color: #d14;
-}
-
-// Блоки кода
-.markdown-previewer pre {
-    background-color: #f4f4f4;
-    padding: 12px;
-    border-radius: 4px;
-    overflow-x: auto;
-    font-family: 'Courier New', Courier, monospace;
-    color: #d14;
-}
-
-
-.markdown-previewer {
     padding: 16px;
     border-radius: 8px;
+
     &__controls {
         display: flex;
         gap: 8px;
         margin-bottom: 10px;
 
         button {
-            padding: 5px 10px;
+            padding: 0.5rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
             border: none;
-            border-radius: 4px;
-            background-color: #333;
-            color: #fff;
+            border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: filter 0.3s ease;
+            color: #edf6f9;
+            background-color: #3a86ff;
+            margin-top: 10px;
 
             &:hover {
-                background-color: #555;
+                filter: brightness(85%);
             }
         }
     }
 
     &__content {
-        font-size: 16px;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 10px 0;
+        color: #333;
+        line-height: 1.6;
 
-        /* Центрирование только текста, исключая заголовки */
-        &.center-text {
-            p, ul, ol, blockquote, code {
-                text-align: center;
-            }
+        // Центрирование текста и заголовков
+        &.center-text p,
+        &.center-text ul,
+        &.center-text ol,
+        &.center-text blockquote,
+        &.center-text code {
+            text-align: center;
         }
 
-        /* Центрирование только заголовков */
         &.center-headings h1,
         &.center-headings h2,
         &.center-headings h3,
@@ -127,26 +52,45 @@
         &.center-headings h6 {
             text-align: center;
         }
-    }
-    // Тема 1 — светлая
-    .theme-light {
-        background-color: #ffffff;
-        color: #333333;
-        font-family: Arial, sans-serif;
-    }
 
-    // Тема 2 — темная
-    .theme-dark {
-        background-color: #2e2e2e;
-        color: #f5f5f5;
-        font-family: 'Courier New', Courier, monospace;
-    }
+        // Стили для заголовков
+        h1, h2, h3, h4, h5, h6 {
+            color: #005f73;
+            margin-bottom: 10px;
+        }
 
-    // Тема 3 — синий
-    .theme-blue {
-        background-color: #e6f0ff;
-        color: #003366;
-        font-family: 'Georgia', serif;
+        p {
+            margin-bottom: 15px;
+        }
+
+        // Стили для ссылок
+        a {
+            color: #007acc;
+            text-decoration: none;
+            border-bottom: 1px dashed #007acc;
+
+            &:hover {
+                color: #005a9c;
+                border-bottom: 1px solid #005a9c;
+            }
+        }
+
+        // Стили для кода и блоков кода
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #d14;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 12px;
+            border-radius: 4px;
+            overflow-x: auto;
+            color: #d14;
+            font-family: 'Courier New', Courier, monospace;
+        }
     }
 }
-

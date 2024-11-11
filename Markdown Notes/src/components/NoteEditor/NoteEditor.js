@@ -1,11 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useState, useEffect } from 'react';
-
 import MarkdownPreviewer from '../MarkdownPreviewer/MarkdownPreviewer';
 import CopyNotification from '../CopyNotification/CopyNotification';
 import './NoteEditor.scss';
 
-const NoteEditor = ({ onSave, onAdd, editingNote}) => {
+const NoteEditor = ({ onSave, onAdd, editingNote }) => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [showNotification, setShowNotification] = useState(false);
@@ -13,39 +12,31 @@ const NoteEditor = ({ onSave, onAdd, editingNote}) => {
 
     useEffect(() => {
         if (editingNote) {
-            setTitle(editingNote.title)
-            setContent(editingNote.content)
+            setTitle(editingNote.title);
+            setContent(editingNote.content);
         } else {
-            setTitle('')
-            setContent('')
+            setTitle('');
+            setContent('');
         }
     }, [editingNote]);
 
     const handleSave = () => {
-        if (editingNote){
-            onSave({ ...editingNote, title, content});
+        if (editingNote) {
+            onSave({ ...editingNote, title, content });
         } else {
-            onAdd({ id: uuidv4(), title, content})
+            onAdd({ id: uuidv4(), title, content });
         }
-
         setTitle('');
         setContent('');
-    }
+    };
 
     const handleCopy = () => {
         navigator.clipboard.writeText(content)
-            .then(() => {
-                setShowNotification(true); // Показываем уведомление
-            })
-            .catch((error) => {
-                console.error("Ошибка копирования: ", error);
-            });
+            .then(() => setShowNotification(true))
+            .catch((error) => console.error("Ошибка копирования: ", error));
     };
 
-
-    const closeNotification = () => {
-        setShowNotification(false); // Скрываем уведомление
-    };
+    const closeNotification = () => setShowNotification(false);
 
     return (
         <div className="note-editor">
@@ -87,7 +78,6 @@ const NoteEditor = ({ onSave, onAdd, editingNote}) => {
             </button>
             <button className="note-editor__button" onClick={handleCopy}>Копировать HTML</button>
             <div className="note-editor__preview">
-                <h3>Предварительный просмотр</h3>
                 <MarkdownPreviewer content={content} />
             </div>
             {showNotification && (

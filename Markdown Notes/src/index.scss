@@ -1,0 +1,21 @@
+@import './variables';
+
+body {
+  &.light {
+    background-color: $light-bg-color;
+    color: $light-text-color;
+
+  }
+
+  &.dark {
+    background-color: $dark-bg-color;
+    color: $dark-text-color;
+
+  }
+
+  &.blue {
+    background-color: $blue-bg-color;
+    color: $blue-text-color;
+
+  }
+}

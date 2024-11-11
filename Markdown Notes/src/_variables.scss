@@ -1,0 +1,16 @@
+// Цвета
+$accent-color: #3a86ff;
+$accent-color-light: lighten($accent-color, 10%);
+$accent-color-dark: darken($accent-color, 10%);
+
+// Светлая тема
+$light-bg-color: #f0f0f0;
+$light-text-color: #333;
+
+// Темная тема
+$dark-bg-color: #333;
+$dark-text-color: #f0f0f0;
+
+// Синяя тема
+$blue-bg-color: #3a86ff;
+$blue-text-color: #fff;
