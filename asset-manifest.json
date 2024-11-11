@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/AleksandrRDK.github.io/static/css/main.a19b4f61.css",
+    "main.js": "/AleksandrRDK.github.io/static/js/main.b7657680.js",
+    "index.html": "/AleksandrRDK.github.io/index.html",
+    "main.a19b4f61.css.map": "/AleksandrRDK.github.io/static/css/main.a19b4f61.css.map",
+    "main.b7657680.js.map": "/AleksandrRDK.github.io/static/js/main.b7657680.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a19b4f61.css",
+    "static/js/main.b7657680.js"
+  ]
+}
