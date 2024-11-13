@@ -9,24 +9,24 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
-    min-height: 1200px;
+    margin-bottom: 210px;
 }
 
 
 .main__shield {
     display: grid;
-    grid-template-columns: 1fr 2fr; /* Задачи занимают 1 часть, редактор — 2 части */
-    gap: 1.5rem; /* Расстояние между колонками */
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
     padding: 1rem;
 
     /* Адаптивное поведение */
     @media (max-width: 768px) {
-        grid-template-columns: 1fr; /* Переключаемся на одну колонку для мобильных */
+        grid-template-columns: 1fr;
     }
 
     .editors__wrapper {
         display: flex;
         flex-direction: column;
-        gap: 1.5rem; /* Расстояние между редактором и заметкой */
+        gap: 1.5rem;
     }
 }

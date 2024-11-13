@@ -9,7 +9,7 @@
     border-radius: 20px;
     background-color: #f0f0f0;
     position: relative;
-    z-index: 1; // Устанавливаем основной контент выше фона
+    z-index: 1;
 
     // Псевдоэлемент для "живой" границы
     &::before {
@@ -20,10 +20,14 @@
         right: -10px;
         bottom: -10px;
         border-radius: 20px;
-        background: linear-gradient(120deg, #007364, #00b894, #6c5ce7, #3a86ff);
-        background-size: 200% 200%; // Задаем увеличенный размер для анимации
-        z-index: -1; // Позади основного содержимого
-        animation: animate-border 5s linear infinite;
+        background: linear-gradient(
+            120deg,
+            #007364, #00b894, #6c5ce7, #3a86ff,
+            #007364, #00b894, #6c5ce7, #3a86ff
+        ); // добавлены повторяющиеся цвета для плавного перехода
+        background-size: 300% 300%; // увеличен размер фона для плавности
+        z-index: -1;
+        animation: animate-border 18s linear infinite; // удлинена длительность анимации
     }
 
     h1 {
@@ -59,7 +63,7 @@
         }
 
         button:nth-child(2) {
-            background-color: #333;
+            background: linear-gradient(135deg, #1a1a1d, #4e4e50);
             color: #f0f0f0;
         }
 
@@ -72,5 +76,6 @@
 
 @keyframes animate-border {
     0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }

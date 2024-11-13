@@ -3,16 +3,18 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
   useEffect(() => {
-    document.body.className = theme;  // Применяем тему к `body`
+    document.body.className = theme;
+    document.body.setAttribute('data-theme', theme);
   }, [theme]);
 
   const toggleTheme = (newTheme) => {
     setTheme(newTheme);
-    document.body.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', newTheme);
   };
+
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
@@ -21,5 +23,4 @@ export const ThemeProvider = ({ children }) => {
   );
 };
 
-// Хук для использования контекста
 export const useTheme = () => useContext(ThemeContext);

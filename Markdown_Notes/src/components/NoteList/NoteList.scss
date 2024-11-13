@@ -1,6 +1,12 @@
 .notelist {
     color: #005f73; /* темный цвет текста */
 
+    &__shield {
+        background-color: #edf6f9;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        padding: 1.5rem;
+    }
     &__search{
         width: 100%;
         padding: 8px;
@@ -17,23 +23,31 @@
         margin-bottom: 1rem;
     }
 
-    .notelist__wrapper {
+    &__wrapper {
+        margin-top: 15px;
         background-color: #edf6f9;
         padding: 1rem;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     }
 
-    .notelist__ul {
+    &__ul {
         list-style-type: none;
         padding: 0;
         margin: 0;
     }
 
-    .notelist__li {
+    &__li {
         padding: 0.5rem 1rem;
         margin-bottom: 0.5rem;
         font-size: 1rem;
         transition: background-color 0.3s ease;
     }
+}
+
+.no-notes-message {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #999;
+    margin-top: 2rem;
 }

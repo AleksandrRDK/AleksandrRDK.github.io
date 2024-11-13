@@ -2,20 +2,100 @@
 
 body {
   &.light {
-    background-color: $light-bg-color;
+    background: linear-gradient(to top right, rgb(129, 142, 201), rgba(240, 240, 240, 0.9));
     color: $light-text-color;
 
   }
 
   &.dark {
-    background-color: $dark-bg-color;
+    background: url('./img/bg/dark-theme-bg.webp') center center/ cover no-repeat;
     color: $dark-text-color;
-
+    .notelist {
+      &__shield, &__wrapper {
+        background-color: rgb(60, 60, 60);
+        border: 2px solid rgb(128, 128, 128);
+        h2{
+          color: white;
+        }
+      }
+      &__search{
+        background-color: rgb(60, 60, 60);
+        border: 2px solid rgb(128, 128, 128);
+        border-radius: 10px;
+        color: white;
+      }
+      &__search::placeholder{
+          color: white;
+        }
+    }
+    .note-editor, .markdown-tips, .markdown-previewer__content{
+      h2, h3, p{
+        color: white;
+      }
+      background-color: rgb(60, 60, 60);
+      border: 2px solid rgb(128, 128, 128);
+      &__input, &__textarea{
+        background-color: rgb(60, 60, 60);
+        border: 2px solid rgb(128, 128, 128);
+        border-radius: 10px;
+        color: white;
+      }
+      &__input::placeholder, &__textarea::placeholder{
+        color: white;
+      }
+    }
   }
 
   &.blue {
-    background-color: $blue-bg-color;
+    background: linear-gradient(135deg, rgb(0, 157, 255), rgb(17, 66, 94), rgba(163, 216, 239, 1));
+    background-size: 400% 400%;
+    animation: seaBackground 10s ease infinite;
     color: $blue-text-color;
+    .notelist {
+      &__shield, &__wrapper {
+        background-color: rgb(173, 216, 230);
+        border: 2px solid rgb(0, 51, 102);
+        h2{
+          color: #005f73;
+        }
+      }
+      &__search{
+        background-color: rgb(173, 216, 230);
+        border: 2px solid rgb(0, 51, 102);
+        border-radius: 10px;
+        color: #005f73;
+      }
+      &__search::placeholder{
+          color: #005f73;
+        }
+    }
+    .note-editor, .markdown-tips, .markdown-previewer__content{
+      h2, h3, p, li{
+        color: #005f73;
+      }
+      background-color: rgb(173, 216, 230);
+      border: 2px solid rgb(0, 51, 102);
+      &__input, &__textarea{
+        background-color: rgb(173, 216, 230);
+        border: 2px solid rgb(0, 51, 102);
+        border-radius: 10px;
+        color: #005f73;
+      }
+      &__input::placeholder, &__textarea::placeholder{
+        color: #005f73;
+      }
+    }
+  }
+}
 
+@keyframes seaBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
