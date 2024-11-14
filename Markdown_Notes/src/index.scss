@@ -36,6 +36,18 @@ body {
         font-size: 1em;
       }
     }
+    .markdown-previewer{
+      h1, h2, h3, h4, h5, h6 {
+          color: white;
+          margin-bottom: 10px;
+      }
+      a{
+        color: #cae2f1;
+      }
+      ul, li {
+        color: white;
+    }
+    }
     .note-editor, .markdown-tips, .markdown-previewer__content{
       h2, h3, p{
         color: white;
@@ -79,6 +91,18 @@ body {
       &__search::placeholder{
           color: #005f73;
         }
+    }
+    .markdown-previewer{
+      h1, h2, h3, h4, h5, h6 {
+          color: #005f73;
+          margin-bottom: 10px;
+      }
+      a{
+        color: #3d6afc;
+      }
+      ul, li {
+        color: #005f73;
+    }
     }
     .note-editor, .markdown-tips, .markdown-previewer__content{
       h2, h3, p, li{

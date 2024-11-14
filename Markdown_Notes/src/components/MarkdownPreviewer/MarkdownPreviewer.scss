@@ -70,14 +70,18 @@
 
         // Стили для ссылок
         a {
-            color: #007acc;
+            color: #0f0096;
             text-decoration: none;
-            border-bottom: 1px dashed #007acc;
 
             &:hover {
                 color: #005a9c;
                 border-bottom: 1px solid #005a9c;
             }
+        }
+
+        ul, li {
+            padding-left: 1em;
+            color: black;
         }
 
         // Стили для кода и блоков кода
