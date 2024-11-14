@@ -19,7 +19,7 @@
     h2 {
         font-size: 1.6rem;
         font-weight: bold;
-        color: #005f73;
+        color: black;
         margin-bottom: 1rem;
     }
 
@@ -48,6 +48,25 @@
 .no-notes-message {
     text-align: center;
     font-size: 1.5rem;
-    color: #999;
-    margin-top: 2rem;
+    color: black;
+    margin-bottom: 0;
+}
+
+.fade-enter {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+.fade-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms, transform 300ms;
+}
+.fade-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+.fade-exit-active {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 300ms, transform 300ms;
 }

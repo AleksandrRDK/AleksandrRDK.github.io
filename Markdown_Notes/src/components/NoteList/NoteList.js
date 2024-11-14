@@ -1,5 +1,5 @@
 import NoteItem from '../NoteItem/NoteItem';
-
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './NoteList.scss'
 
 const NoteList = ({notes, onEdit, onDelete, searchQuery, onSearchChange}) => {
@@ -16,23 +16,29 @@ const NoteList = ({notes, onEdit, onDelete, searchQuery, onSearchChange}) => {
                 />
             </div>
             <div className="notelist__wrapper">
-            {notes.length === 0 && <p className="no-notes-message">Нет заметок</p>}
-                <ul className="notelist__ul">
+                {notes.length === 0 && <p className="no-notes-message">Нет заметок</p>}
+                <TransitionGroup component="ul" className="notelist__ul">
                     {notes.map(note => (
-                        <li key={note.id} className="notelist__li">
-                            <NoteItem
-                                title={note.title}
-                                createdDate={note.createdDate}
-                                content={note.content}
-                                onEdit={() => onEdit(note)}
-                                onDelete={() => onDelete(note.id)}
-                            />
-                        </li>
+                        <CSSTransition
+                            key={note.id}
+                            timeout={300}
+                            classNames="fade"
+                        >
+                            <li className="notelist__li">
+                                <NoteItem
+                                    title={note.title}
+                                    createdDate={note.createdDate}
+                                    content={note.content}
+                                    onEdit={() => onEdit(note)}
+                                    onDelete={() => onDelete(note.id)}
+                                />
+                            </li>
+                        </CSSTransition>
                     ))}
-                </ul>
+                </TransitionGroup>
             </div>
         </div>
-    )
+    );
 };
 
 export default NoteList;

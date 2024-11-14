@@ -65,11 +65,11 @@ const NoteEditor = ({ onSave, onAdd, editingNote }) => {
                 <div className="markdown-tips">
                     <h3>Подсказки по Markdown:</h3>
                     <ul>
-                        <li><code># Заголовок</code> - заголовок</li>
-                        <li><code>**жирный текст**</code> - жирный текст</li>
-                        <li><code>*курсив*</code> - курсив</li>
-                        <li><code>[ссылка](url)</code> - ссылка</li>
-                        <li><code>- Список</code> - элемент списка</li>
+                        <li><code># текст</code> - заголовок</li>
+                        <li><code>**текст**</code> - жирный текст</li>
+                        <li><code>*текст*</code> - курсив</li>
+                        <li><code>[текст](url)</code> - ссылка</li>
+                        <li><code>- текст</code> - элемент списка</li>
                     </ul>
                 </div>
             )}

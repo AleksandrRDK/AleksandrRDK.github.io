@@ -11,7 +11,7 @@
     h2 {
         font-size: 1.5rem;
         font-weight: bold;
-        color: #005f73;
+        color: black;
         margin-bottom: 1rem;
     }
 
@@ -23,7 +23,7 @@
         border: 1px solid #a2d2ff;
         border-radius: 5px;
         background-color: #f0f4f8;
-        color: #005f73;
+        color: black;
 
         &:focus {
             border-color: #3a86ff;
@@ -41,7 +41,7 @@
         border-radius: 5px;
         resize: vertical;
         background-color: #f0f4f8;
-        color: #005f73;
+        color: black;
 
         &:focus {
             border-color: #3a86ff;
@@ -72,7 +72,7 @@
 
         h3 {
             font-size: 1.2rem;
-            color: #005f73;
+            color: black;
             margin-bottom: 0.5rem;
         }
     }
@@ -90,6 +90,7 @@
         border: none;
         cursor: pointer;
         transition: transform 0.3s ease, color 0.3s ease;
+        padding: 0;
         &:hover {
             transform: scale(1.5); // Легкое увеличение на 10%
             color: red; // Изменение цвета текста
@@ -105,7 +106,9 @@
     font-size: 0.9em;
 
     ul {
-        padding-left: 20px;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
     }
 
     li {

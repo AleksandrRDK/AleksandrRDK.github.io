@@ -8,7 +8,9 @@ body {
   }
 
   &.dark {
-    background: url('./img/bg/dark-theme-bg.webp') center center/ cover no-repeat;
+    background: linear-gradient(135deg, #000000, #2a1335, #110707, #453652, #000000);
+    background-size: 400% 400%;
+    animation: gradientAnimation 8s ease infinite;
     color: $dark-text-color;
     .notelist {
       &__shield, &__wrapper {
@@ -28,6 +30,12 @@ body {
           color: white;
         }
     }
+    .markdown-tips{
+      code{
+        color:rgb(255, 0, 55);
+        font-size: 1em;
+      }
+    }
     .note-editor, .markdown-tips, .markdown-previewer__content{
       h2, h3, p{
         color: white;
@@ -43,6 +51,9 @@ body {
       &__input::placeholder, &__textarea::placeholder{
         color: white;
       }
+    }
+    .no-notes-message, .markdown-previewer__nothing__message{
+      color: white;
     }
   }
 
@@ -85,10 +96,25 @@ body {
         color: #005f73;
       }
     }
+    .no-notes-message, .markdown-previewer__nothing__message{
+      color: #005f73;
+    }
   }
 }
 
 @keyframes seaBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradientAnimation {
   0% {
     background-position: 0% 50%;
   }
