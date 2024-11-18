@@ -6,7 +6,6 @@ const Filters = ({ filters, onFilterChange, resetFilters }) => {
   const [categoryFilter, setCategoryFilter] = useState(filters.category);
 
   useEffect(() => {
-    // Обновляем состояние фильтров при изменении пропсов
     setStatusFilter(filters.status);
     setCategoryFilter(filters.category);
   }, [filters]);

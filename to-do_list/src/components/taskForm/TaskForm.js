@@ -6,7 +6,7 @@ import './taskForm.scss'
 const TaskForm = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('Work');
+  const [category, setCategory] = useState('Работа');
   const [date, setDate] = useState('');
   const [createTask] = useCreateTaskMutation();
 
@@ -16,7 +16,7 @@ const TaskForm = () => {
       await createTask({ name, description, category, date });
       setName('');
       setDescription('');
-      setCategory('Work');
+      setCategory('Работа');
       setDate('');
     }
   };
@@ -31,6 +31,7 @@ const TaskForm = () => {
           placeholder="Название"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          required
         />
       </div>
       <label htmlFor="task-description">Описание:</label>
@@ -60,6 +61,7 @@ const TaskForm = () => {
           type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
+          required
         />
       </div>
 

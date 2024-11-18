@@ -1,5 +1,8 @@
 import './taskListItem.scss';
 
+import { FaStar } from "react-icons/fa6";
+import { CSSTransition } from 'react-transition-group';
+
 const TaskListItem = ({ name, description, category, date, completed, onToggleComplete, onDelete }) => {
   return (
     <div className={`task-item ${completed ? 'completed' : ''}`}>
@@ -18,6 +21,16 @@ const TaskListItem = ({ name, description, category, date, completed, onToggleCo
         <button className="delete-btn" onClick={onDelete}>
           Удалить
         </button>
+        <CSSTransition
+          in={completed} // Условие для появления/исчезновения
+          timeout={300}  // Время анимации
+          classNames="star" // Префикс для классов анимации
+          unmountOnExit  // Удаляет элемент из DOM, когда он не виден
+        >
+          <div className="task-item__star__wrapper">
+            <FaStar className='task-item__star'/>
+          </div>
+        </CSSTransition>
       </div>
     </div>
   );

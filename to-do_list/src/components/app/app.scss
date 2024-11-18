@@ -8,3 +8,9 @@
         gap: 20px;
     }
 }
+
+@media (max-width: 768px) {
+    .app__wrapper {
+      grid-template-columns: 1fr;
+    }
+  }

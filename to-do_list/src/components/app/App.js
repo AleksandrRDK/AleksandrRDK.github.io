@@ -13,7 +13,7 @@ const App = () => {
         category: 'Все',
     });
 
-    const { data: tasks = [] } = useGetTasksQuery(); // Получаем задачи из API
+    const { data: tasks = [] } = useGetTasksQuery();
 
     // Функция для изменения фильтров
     const handleFilterChange = (newFilters) => {
