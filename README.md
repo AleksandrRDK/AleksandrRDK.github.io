@@ -9,7 +9,7 @@
 - 🌱 Сейчас изучаю TypeScript и углубляю знания по React.
 - ⚡ Увлечен дизайном и созданием качественных интерфейсов.
 
-## 🛠 Навыки
+## 🛠️ Навыки
 
 - **Языки**: ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white)
 - **Фреймворки и библиотеки**: ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB) ![Redux](https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=redux&logoColor=white) ![Redux Toolkit](https://img.shields.io/badge/Redux--Toolkit-764ABC?style=flat-square&logo=redux&logoColor=white) ![jQuery](https://img.shields.io/badge/jQuery-0769AD?style=flat-square&logo=jquery&logoColor=white)
@@ -23,16 +23,18 @@
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AleksandrRDK&layout=compact&theme=radical" height="180" />
 </div>
 
-## 📂 Основные проекты
+## 💂‍🔧 Основные проекты
 
-| Название проекта                                                     | Описание                                                      | Технологии        |
-| -------------------------------------------------------------------- | ------------------------------------------------------------- | ----------------- |
-| [**To-Do List**](https://aleksandrrdk.github.io/to-do_list/)         | Приложение для управления задачами с категорией и фильтрацией | React, Redux      |
-| [**Markdown notes**](https://aleksandrrdk.github.io/markdown-notes/) | приложение для заметок с Markdown и копированием HTML.        | React, SCSS       |
-| [**Клон Netflix**](https://github.com/AleksandrRDK/project-3)        | Копия интерфейса Netflix с фильтрацией фильмов                | TypeScript, React |
+| Название проекта                                                                         | Описание                                                           | Технологии   |
+| ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------------ |
+| [**Small Business Dashboard**](https://aleksandrrdk.github.io/small_business_dashboard/) | **Мое основное приложение для управления данными малого бизнеса.** |
+| Предоставляет аналитику, графики и удобную систему управления.                           | TypeScript, React, Redux Toolkit, Firebase                         |
+| [**To-Do List**](https://aleksandrrdk.github.io/to-do_list/)                             | Приложение для управления задачами с категорией и фильтрацией      | React, Redux |
+| [**Markdown notes**](https://aleksandrrdk.github.io/markdown-notes/)                     | Приложение для заметок с Markdown и копированием HTML              | React, SCSS  |
 
-## 📫 Контакты
+## 📧 Контакты
 
-- LinkedIn: [linkedin.com/in/aleksandrRDK](https://linkedin.com/in/aleksandrRDK)
-- Email: aleksandrRDK@example.com
-- Telegram: [@aleksandrRDK](https://t.me/aleksandrRDK)
+<!-- - LinkedIn: [linkedin.com/in/aleksandrRDK](https://linkedin.com/in/aleksandrRDK) -->
+
+- Email: aleksandrrdk.code@gmail.com
+- Telegram: [@bc_Alexander](https://t.me/bc_Alexander)
