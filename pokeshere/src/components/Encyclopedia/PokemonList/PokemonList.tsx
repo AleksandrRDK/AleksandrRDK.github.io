@@ -25,7 +25,7 @@ const PokemonList: React.FC<PokemonListProps> = ({ searchQuery, filterQuery }) =
     const loadPokemons = async () => {
       setLoading(true);
       try {
-        const newPokemons = await fetchPokemons(8, offset);
+        const newPokemons = await fetchPokemons(10, offset);
         setPokemons((prev) => [...prev, ...newPokemons]);
       } catch (error) {
         console.error('Error loading pokemons:', error);
@@ -57,7 +57,7 @@ const PokemonList: React.FC<PokemonListProps> = ({ searchQuery, filterQuery }) =
   }, [searchQuery, filterQuery, pokemons]);
 
   const handleLoadMore = () => {
-    setOffset((prev) => prev + 8);
+    setOffset((prev) => prev + 10);
   };
 
   return (
