@@ -16,6 +16,16 @@ export interface PokemonDetails {
   abilities: string[];
   stats: { name: string; value: number }[];
 }
+export interface PokemonComparisonDetails {
+  id: number;
+  name: string;
+  image: string;
+  types: string[];
+  abilities: string[];
+  stats: { name: string; value: number }[];
+  weight: number; // Вес покемона
+  height: number; // Рост покемона
+}
 
 export interface RandomPokemon extends PokemonDetails {
   description: string;
@@ -114,23 +124,49 @@ export const fetchPokemonEvolutionDetails = async (nameOrId: string): Promise<nu
   }
 };
 
-export const fetchEvolutionChain = async (chainId: number): Promise<string[]> => {
+export const fetchEvolutionChain = async (chainId: number): Promise<PokemonDetails[]> => {
   try {
     const response = await axios.get<EvolutionChainResponse>(`${API_BASE_URL}/evolution-chain/${chainId}`);
-    const evolutionChain: string[] = [];
+    const evolutionChain: PokemonDetails[] = [];
 
-    const traverseChain = (chain: EvolutionDetail) => {
-      evolutionChain.push(chain.species.name);
+    const traverseChain = async (chain: EvolutionDetail) => {
+      const details = await fetchPokemonDetails(chain.species.name);
+      evolutionChain.push(details);
       if (chain.evolves_to.length > 0) {
-        traverseChain(chain.evolves_to[0]);
+        await traverseChain(chain.evolves_to[0]);
       }
     };
 
-    traverseChain(response.data.chain);
+    await traverseChain(response.data.chain);
 
-    return evolutionChain; // Пример: ["pichu", "pikachu", "raichu"]
+    return evolutionChain; // Пример: [{ id: 25, name: "pikachu", image: "url" }, ...]
   } catch (error) {
     console.error(`Error fetching evolution chain with ID ${chainId}:`, error);
     throw new Error(`Failed to fetch evolution chain with ID ${chainId}`);
+  }
+};
+
+export const fetchPokemonForComparison = async (nameOrId: string): Promise<PokemonComparisonDetails> => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/pokemon/${nameOrId}`);
+
+    const { id, name, sprites, types, abilities, stats, weight, height } = response.data;
+
+    return {
+      id,
+      name,
+      image: sprites.front_default,
+      types: types.map((type: { type: { name: string } }) => type.type.name),
+      abilities: abilities.map((ability: { ability: { name: string } }) => ability.ability.name),
+      stats: stats.map((stat: { stat: { name: string }, base_stat: number }) => ({
+        name: stat.stat.name,
+        value: stat.base_stat,
+      })),
+      weight,
+      height,
+    };
+  } catch (error) {
+    console.error(`Error fetching pokemon (${nameOrId}):`, error);
+    throw new Error(`Failed to fetch pokemon (${nameOrId}).`);
   }
 };

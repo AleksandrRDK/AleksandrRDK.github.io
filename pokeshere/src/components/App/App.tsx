@@ -9,12 +9,15 @@ import PokemonList from '../Encyclopedia/PokemonList/PokemonList';
 
 import EvolutionSelector from '../Evolution/EvolutionSelector/EvolutionSelector';
 import EvolutionTree from '../Evolution/EvolutionTree/EvolutionTree';
-import { fetchPokemonEvolutionDetails, fetchEvolutionChain } from '../../api/pokemonApi';
+import { fetchPokemonEvolutionDetails, fetchEvolutionChain, PokemonDetails } from '../../api/pokemonApi';
+
+import PokemonComparison from '../Comparison/PokemonComparison/PokemonComparison';
+
 
 function App() {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [filterQuery, setFilterQuery] = useState<string[]>([]);
-  const [evolutionChain, setEvolutionChain] = useState<string[]>([]); // Для хранения цепочки эволюции
+  const [evolutionChain, setEvolutionChain] = useState<PokemonDetails[]>([]);
   const [error, setError] = useState<string | null>(null); // Для отображения ошибок
 
   const handleSearch = (query: string) => {
@@ -37,6 +40,8 @@ function App() {
     }
   };
 
+
+
   return (
     <div className="container">
       <Navigation />
@@ -48,9 +53,11 @@ function App() {
       <PokemonList searchQuery={searchQuery} filterQuery={filterQuery} /> */}
 
       {/* Компоненты цепочки эволюции */}
-      <EvolutionSelector onSelect={handleSelectPokemon} />
+      {/* <EvolutionSelector onSelect={handleSelectPokemon} />
       {error && <p className="error-message">{error}</p>}
-      <EvolutionTree evolutionChain={evolutionChain} />
+      <EvolutionTree evolutionChain={evolutionChain} /> */}
+
+        <PokemonComparison/>
     </div>
   );
 }
