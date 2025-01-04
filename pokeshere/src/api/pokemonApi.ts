@@ -44,6 +44,18 @@ export interface EvolutionChainResponse {
   chain: EvolutionDetail;
 }
 
+export interface PokemonDetailsForPage {
+  id: number;
+  name: string;
+  image: string;
+  height: number;
+  weight: number;
+  abilities: string[];
+  types: string[];
+  stats: { name: string; value: number }[];
+  description: string;
+}
+
 // Функции
 export const fetchPokemons = async (limit: number = 10, offset: number = 0): Promise<PokemonDetails[]> => {
   try {
@@ -164,6 +176,55 @@ export const fetchPokemonForComparison = async (nameOrId: string): Promise<Pokem
       })),
       weight,
       height,
+    };
+  } catch (error) {
+    console.error(`Error fetching pokemon (${nameOrId}):`, error);
+    throw new Error(`Failed to fetch pokemon (${nameOrId}).`);
+  }
+};
+
+export const fetchRandomPokemons = async (count: number, maxId: number): Promise<{ id: number; name: string }[]> => {
+  const randomIds = Array.from({ length: count }, () => Math.floor(Math.random() * maxId) + 1);
+
+  try {
+    const responses = await Promise.all(
+      randomIds.map((id) => axios.get(`${API_BASE_URL}/pokemon/${id}`))
+    );
+
+    return responses.map((response) => ({
+      id: response.data.id,
+      name: response.data.name,
+    }));
+  } catch (error) {
+    console.error('Error fetching random pokemons:', error);
+    throw new Error('Failed to fetch random pokemons');
+  }
+};
+
+export const fetchPokemonDetailsForPage = async (nameOrId: number | string): Promise<PokemonDetailsForPage> => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/pokemon/${nameOrId}`);
+    const speciesResponse = await axios.get(`${API_BASE_URL}/pokemon-species/${nameOrId}`)
+
+    const descriptionEntry = speciesResponse.data.flavor_text_entries.find(
+      (entry: { language: { name: string } }) => entry.language.name === 'en'
+    );
+
+    const { id, name, sprites, types, abilities, stats, weight, height} = response.data;
+
+    return {
+      id,
+      name,
+      image: sprites.front_default,
+      types: types.map((type: { type: { name: string } }) => type.type.name),
+      abilities: abilities.map((ability: { ability: { name: string } }) => ability.ability.name),
+      stats: stats.map((stat: { stat: { name: string }, base_stat: number }) => ({
+        name: stat.stat.name,
+        value: stat.base_stat,
+      })),
+      weight,
+      height,
+      description: descriptionEntry ? descriptionEntry.flavor_text.replace(/[\n\f]/g, ' ') : 'No description available.',
     };
   } catch (error) {
     console.error(`Error fetching pokemon (${nameOrId}):`, error);
