@@ -1,0 +1,6 @@
+vercel deploy
+
+vercel --prod
+
+сервер запустить
+vercel dev

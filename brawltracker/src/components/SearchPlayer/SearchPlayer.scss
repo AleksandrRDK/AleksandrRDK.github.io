@@ -1,0 +1,97 @@
+.search-player {
+    background-color: #1a1a2e; // Темный фон
+    color: #ffffff; // Белый текст
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+
+    h1 {
+        font-size: 2.5rem;
+        color: #00aaff; // Голубой акцент
+        margin-bottom: 20px;
+    }
+
+    input {
+        width: 300px;
+        padding: 10px;
+        border: 2px solid #00aaff; // Голубая рамка
+        border-radius: 5px;
+        background-color: #0d0d1f; // Темный фон
+        color: #ffffff;
+        font-size: 1rem;
+        margin-bottom: 20px;
+        outline: none;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+            border-color: #007acc; // Более яркий синий при фокусе
+        }
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #00aaff; // Голубая кнопка
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #007acc; // Темно-синий при наведении
+        }
+    }
+
+    .error {
+        color: #ff4d4d; // Красный текст ошибки
+        margin-top: 10px;
+        font-size: 1rem;
+    }
+
+    .player-info {
+        background-color: #0d0d1f; // Темный фон карточки
+        border: 2px solid #00aaff; // Голубая рамка
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+        text-align: left;
+        width: 100%;
+        max-width: 400px;
+
+        h2 {
+            font-size: 1.5rem;
+            color: #00aaff;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1rem;
+            margin: 5px 0;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: #00aaff;
+            margin-top: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+                font-size: 1rem;
+                margin: 5px 0;
+                padding: 5px;
+                background-color: #1a1a2e; // Темный блок
+                border-radius: 5px;
+                border: 1px solid #00aaff; // Голубая рамка
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "api/fetchPlayer.ts",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/api/fetchPlayer",
+            "dest": "/api/fetchPlayer.ts"
+        }
+    ]
+}
