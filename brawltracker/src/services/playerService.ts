@@ -5,7 +5,6 @@ export const fetchPlayerClient = async (playerTag: string): Promise<Player> => {
 
     // Логируем тело ответа как текст
     const responseBody = await response.text();
-    console.log('Response body:', responseBody);
 
     // Проверяем, успешен ли запрос
     if (!response.ok) {

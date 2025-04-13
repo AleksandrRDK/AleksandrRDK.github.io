@@ -11,6 +11,15 @@ export interface Player {
         name: string;
     };
     brawlers: Brawler[];
+    soloVictories: number;
+    duoVictories: number;
+    "3vs3Victories": number;
+    bestRoboRumbleTime?: number;
+    bestTimeAsBigBrawler?: number;
+    nameColor: string;
+    icon: {
+        id: number;
+    };
 }
 
 export interface Brawler {

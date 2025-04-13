@@ -1,5 +1,4 @@
 import './App.scss';
-import '../../styles/reset.scss'
 
 import SearchPlayer from '../SearchPlayer/SearchPlayer';
 

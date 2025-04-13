@@ -1,97 +1,248 @@
 .search-player {
-    background-color: #1a1a2e; // Темный фон
-    color: #ffffff; // Белый текст
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Roboto', sans-serif;
-    padding: 20px;
+	color: #ffffff;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: 'Roboto', sans-serif;
+	padding: 20px;
+	gap: 20px;
 
-    h1 {
-        font-size: 2.5rem;
-        color: #00aaff; // Голубой акцент
-        margin-bottom: 20px;
-    }
+	h1 {
+		font-size: 2.5rem;
+		color: #00aaff;
+	}
+	h2, h3 {
+		font-family: 'Roboto', sans-serif;
+		color: white;
+		text-align: center;
+		padding: 10px 15px;
+		margin: 20px 0;
+	}
 
-    input {
-        width: 300px;
-        padding: 10px;
-        border: 2px solid #00aaff; // Голубая рамка
-        border-radius: 5px;
-        background-color: #0d0d1f; // Темный фон
-        color: #ffffff;
-        font-size: 1rem;
-        margin-bottom: 20px;
-        outline: none;
-        transition: border-color 0.3s ease;
+	h3 {
+		font-size: 1.5rem;
+	}
 
-        &:focus {
-            border-color: #007acc; // Более яркий синий при фокусе
-        }
-    }
+	h2 {
+		font-size: 2rem;
+		text-transform: uppercase;
+	}
 
-    button {
-        padding: 10px 20px;
-        background-color: #00aaff; // Голубая кнопка
-        color: #ffffff;
-        border: none;
-        border-radius: 5px;
-        font-size: 1.1rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+	input {
+		width: 300px;
+		padding: 10px;
+		border: 2px solid #00aaff;
+		border-radius: 5px;
+		background-color: #0d0d1f;
+		color: #ffffff;
+		font-size: 1rem;
+		outline: none;
+		transition: border-color 0.3s ease;
 
-        &:hover {
-            background-color: #007acc; // Темно-синий при наведении
-        }
-    }
+		&:focus {
+			border-color: #007acc;
+		}
+	}
 
-    .error {
-        color: #ff4d4d; // Красный текст ошибки
-        margin-top: 10px;
-        font-size: 1rem;
-    }
+	button {
+		padding: 10px 20px;
+		background-color: #00aaff;
+		color: #ffffff;
+		border: none;
+		border-radius: 5px;
+		font-size: 1.1rem;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
 
-    .player-info {
-        background-color: #0d0d1f; // Темный фон карточки
-        border: 2px solid #00aaff; // Голубая рамка
-        border-radius: 10px;
-        padding: 20px;
-        margin-top: 20px;
-        text-align: left;
-        width: 100%;
-        max-width: 400px;
+		&:hover {
+			background-color: #007acc;
+		}
+	}
 
-        h2 {
-            font-size: 1.5rem;
-            color: #00aaff;
-            margin-bottom: 15px;
-        }
+	.error {
+		color: #ff4d4d;
+		font-size: 1rem;
+	}
 
-        p {
-            font-size: 1rem;
-            margin: 5px 0;
-        }
+	.loader {
+		display: none; /* Скрыто по умолчанию */
+		align-items: center;
+		justify-content: center;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
+		z-index: 1000;
+	}
 
-        h3 {
-            font-size: 1.3rem;
-            color: #00aaff;
-            margin-top: 15px;
-        }
+	.loader.active {
+		display: flex; /* Показывать при активной загрузке */
+	}
 
-        ul {
-            list-style: none;
-            padding: 0;
+	.loader__icon {
+		width: 80px;
+		height: 80px;
+		animation: spin 1s linear infinite; /* Анимация вращения */
+	}
 
-            li {
-                font-size: 1rem;
-                margin: 5px 0;
-                padding: 5px;
-                background-color: #1a1a2e; // Темный блок
-                border-radius: 5px;
-                border: 1px solid #00aaff; // Голубая рамка
-            }
-        }
-    }
+	@keyframes spin {
+		from {
+		  transform: rotate(0deg); /* Начало вращения */
+		}
+		to {
+		  transform: rotate(360deg); /* Полный оборот */
+		}
+	}
+
+
+	.player__cards {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+		justify-content: center;
+		padding: 20px;
+		border-radius: 8px;
+	}
+
+	.player__card {
+		background: linear-gradient(45deg, #005eff, #00e1ff); /* Яркий градиент */
+		color: white; /* Цвет текста */
+		font-size: 18px;
+		font-weight: bold;
+		padding: 12px 20px;
+		border: none;
+		border-radius: 12px;
+		cursor: pointer;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Объемная тень */
+	}
+
+	.player__card:hover {
+		transform: scale(1.1); /* Легкое увеличение при наведении */
+		box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Усиление тени при наведении */
+	}
+
+	.player__card:active {
+		transform: scale(0.95); /* Эффект нажатия */
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Уменьшенная тень */
+	}
+
+
+	.player-info {
+		background-color: #0d0d1f;
+		border: 2px solid #00aaff;
+		border-radius: 10px;
+		padding: 20px;
+		width: 100%;
+		max-width: 800px;
+		.player-header {
+			display: flex;
+			align-items: center;
+			gap: 20px;
+			margin-bottom: 20px;
+		}
+
+		.avatar {
+			width: 100px;
+			height: 100px;
+			border-radius: 5%;
+			overflow: hidden;
+			border: 3px solid #00aaff;
+		}
+
+		.avatar img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.player-basic-info {
+			flex: 1;
+		}
+
+		.player-basic-info h3 {
+			font-size: 1.5rem;
+			margin: 0;
+			color: #00aaff;
+			text-align: start;
+			padding: 0;
+		}
+
+		.player-tag {
+			font-size: 1rem;
+			color: #ffffff;
+		}
+
+		.progress-bar {
+			background-color: #333;
+			border-radius: 10px;
+			height: 10px;
+			margin: 10px 0;
+			width: 100%;
+			overflow: hidden;
+		}
+
+		.progress {
+			background-color: #00aaff;
+			height: 100%;
+		}
+
+		.club-info {
+			padding: 5px 10px;
+			background-color: #1a1a2e;
+			border: 2px solid #00aaff;
+			border-radius: 5px;
+			display: inline-block;
+			color: #ffffff;
+			margin-top: 10px;
+		}
+
+		.player-stats {
+			display: flex;
+			gap: 20px;
+		}
+
+		.stats-column {
+			flex: 1;
+		}
+
+		.stats-column p {
+			background-color: #1a1a2e;
+			padding: 10px;
+			border-radius: 5px;
+			margin-bottom: 10px;
+			border: 1px solid #00aaff;
+		}
+
+
+		.brawlers-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+			gap: 15px;
+			margin-top: 15px;
+
+			.brawler-card {
+				background-color: #1a1a2e;
+				border: 1px solid #00aaff;
+				border-radius: 10px;
+				padding: 10px;
+				text-align: center;
+
+				h4 {
+					font-size: 1.2rem;
+					margin-bottom: 10px;
+				}
+
+				p {
+					font-size: 0.9rem;
+					margin: 5px 0;
+				}
+			}
+		}
+	}
 }

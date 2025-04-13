@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import axios, { AxiosError } from 'axios';
 import { Player, Brawler, Ability } from '../src/types/player';
 
-const API_KEY = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImY1ZDNmZmViLTZmYWEtNGM0YS1iM2M3LTg3ZWVkMDlmN2Q4ZiIsImlhdCI6MTczNjM0NzY0MCwic3ViIjoiZGV2ZWxvcGVyLzVmZDYzNzk4LWIwNmEtZDY3Zi01MzJhLWI0ZWZlYzFiOWMwOSIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiMTA0LjI4LjIyOC4xMDgiXSwidHlwZSI6ImNsaWVudCJ9XX0.voaLh7CzI1ZhNZjlDsy4apxWNSnPvEKT6Y-IuV2eWd2rM_57IrNSfgVMwBrXiQn0WWhA8fjSuj8oWJvvCECTuQ';
+const API_KEY = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImMzYmZhMDU1LTYyNGMtNDc5Yi04YmQ3LTZhMDA0YTE5YTgxZiIsImlhdCI6MTczNjg3MDI4NSwic3ViIjoiZGV2ZWxvcGVyLzVmZDYzNzk4LWIwNmEtZDY3Zi01MzJhLWI0ZWZlYzFiOWMwOSIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiMTA0LjI4LjIyOC4xMDgiLCIxMDQuMjguMjI4LjEwNyIsIjEwNC4yOC4yMjguMTA5IiwiMTA0LjI4LjIyOC4xMDYiLCIxMDQuMjguMjI4LjExMCJdLCJ0eXBlIjoiY2xpZW50In1dfQ.iH-pMp4Xpnf-SP-7-bdxBgZ1qc0qLHHzypoxaflB-lFvSyAVBFqDKxJYatdiEGSYCLetXg28SJGCFHgBqaHYWA';
 const BASE_URL = 'https://api.brawlstars.com/v1';
 
 export default async function fetchPlayer(req: VercelRequest, res: VercelResponse) {
@@ -37,6 +37,13 @@ export default async function fetchPlayer(req: VercelRequest, res: VercelRespons
             expLevel: rawData.expLevel,
             expPoints: rawData.expPoints,
             isQualifiedFromChampionshipChallenge: rawData.isQualifiedFromChampionshipChallenge,
+            soloVictories: rawData.soloVictories,
+            duoVictories: rawData.duoVictories,
+            "3vs3Victories": rawData["3vs3Victories"],
+            bestRoboRumbleTime: rawData.bestRoboRumbleTime,
+            bestTimeAsBigBrawler: rawData.bestTimeAsBigBrawler,
+            nameColor: rawData.nameColor,
+            icon: {id: rawData.icon.id},
             club: rawData.club
                 ? {
                       tag: rawData.club.tag,
